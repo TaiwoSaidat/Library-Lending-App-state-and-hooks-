@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-      <h1>This is a simple State and Hooks Lesson</h1>
+    {/* simple State and Hooks Lesson */}
+      <h1>This is a Library Lending App</h1>
       <Library />
       {/* <SideEffect /> */}
 
