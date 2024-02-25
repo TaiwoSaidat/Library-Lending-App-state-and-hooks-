@@ -1,3 +1,4 @@
+// functional components of react state and hook
 import { useState } from 'react'
 
 function Library() {
@@ -13,11 +14,12 @@ function Library() {
     }
 
     //function to add user input to the borrowBooks array
-    const borrowBooks = () => {
+    const borrowBooks = (event) => {
         if (currBook){
             setBooks([...books, currBook])
             setCurrBook('')
-        }   
+        }  
+        event.preventDefault() 
     }
 
     const handleKeyPress = (e)=> {
@@ -29,14 +31,16 @@ function Library() {
   return (
     <>
       <p>Women Techsters Book Library</p>
-      <input 
-        type="text" 
-        value={currBook} 
-        onChange={handleInput} 
-        onKeyDown={handleKeyPress}
-        placeholder='Kindly enter a book name' 
-        />
-      <button onClick={()=> borrowBooks('Legend of the Seeker')}>Borrow books</button>
+      <form onSubmit={borrowBooks} >
+        <input 
+            type="text" 
+            value={currBook} 
+            onChange={handleInput} 
+            onKeyDown={handleKeyPress}
+            placeholder='Kindly enter a book name' 
+            />
+        <button>Borrow books</button>
+      </form>
       <br /><br />
       <hr />
       <p>Borrowed Books</p>
